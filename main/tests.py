@@ -24,3 +24,13 @@ class LocationTestClass(TestCase):
         self.kitui.delete_location('kitui')
         locations = Location.objects.all()
         self.assertTrue(len(locations)==0)
+
+class categoriesTestClass(TestCase):
+    def setUp(self):
+        self.Food = categories(category='Food')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.Food,categories))
+
+    def tearDown(self):
+        categories.objects.all().delete()
