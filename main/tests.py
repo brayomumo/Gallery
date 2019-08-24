@@ -34,3 +34,9 @@ class categoriesTestClass(TestCase):
 
     def tearDown(self):
         categories.objects.all().delete()
+
+    def test_save_method(self):
+        self.Food.save_category()
+        category = categories.objects.all()
+        self.assertTrue(len(category)>0)
+
