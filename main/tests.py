@@ -11,3 +11,11 @@ class LocationTestClass(TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.kitui,Location))
+
+    def tearDown(self):
+        Location.objects.all().delete()
+
+    def test_save_method(self):
+        self.Nyeri.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)>0)
