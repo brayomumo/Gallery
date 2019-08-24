@@ -40,3 +40,8 @@ class categoriesTestClass(TestCase):
         category = categories.objects.all()
         self.assertTrue(len(category)>0)
 
+        
+    def test_delete_method(self):
+        self.Food.delete_category('Food')
+        category = categories.objects.all()
+        self.assertTrue(len(category)==0)
