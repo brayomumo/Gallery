@@ -7,7 +7,7 @@ import datetime as dt
 # Create your tests here.
 class LocationTestClass(TestCase):
     def setUp(self):
-        self.kitui= Location(location='Nyeri')
+        self.kitui= Location(location='kitui')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.kitui,Location))
@@ -16,6 +16,11 @@ class LocationTestClass(TestCase):
         Location.objects.all().delete()
 
     def test_save_method(self):
-        self.Nyeri.save_location()
+        self.kitui.save_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations)>0)
+
+    def test_delete_method(self):
+        self.kitui.delete_location('kitui')
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)==0)
