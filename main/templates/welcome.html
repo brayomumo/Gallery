@@ -2,7 +2,13 @@
 
 {% block content %}
 {{super }}
-
+<style>
+ body{
+  background-image: url('http://tanamen.com/img/d_default/black-wall-texture/black-wall-texture-stone-5c73ff7e0e348.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+ }
+</style>
 
 <head>
   </div>
@@ -25,7 +31,7 @@
     {% for data in images %}
 
     
-      <h3> {{data.title}} </h3>
+      <h3 style="color: azure"> {{data.title}} </h3>
       <div class="col-lg-4 col-lg-4 col-lg-4 col-md-12 ">
         <img src="{{data.image.url}}" class=" img img-responsive" data-toggle="modal" data-target="#{{data.id}}">
       </div>
