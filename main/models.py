@@ -37,6 +37,9 @@ class categories(models.Model):
     def delete_category(cls,category):
         cls.objects.filter(category=category).delete()
 
+
+        
+
 class Image(models.Model):
     title=models.CharField(max_length=60)
     categories = models.ManyToManyField(categories)
