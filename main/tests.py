@@ -40,8 +40,24 @@ class categoriesTestClass(TestCase):
         category = categories.objects.all()
         self.assertTrue(len(category)>0)
 
-        
+
     def test_delete_method(self):
         self.Food.delete_category('Food')
         category = categories.objects.all()
         self.assertTrue(len(category)==0)
+
+class ImageTestClass(TestCase):
+    def setUp(self):
+        self.test_category = categories(category=list('Travel'))
+        self.test_category.save_category()
+
+        self.location = Location(location="kitui")
+        self.location.save_location()
+
+        self.image = Image(id=1,title="Me",categories=self.test_category,location=self.location,)
+        self.image.save_image()
+
+    def tearDown(self):
+        categories.objects.all().delete()
+        Location.objects.all().delete()
+        Image.objects.all().delete()
